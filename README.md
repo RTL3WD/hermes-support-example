@@ -29,16 +29,18 @@ From this project folder:
     python search_notes.py lantern
     python search_notes.py latern
     python search_notes.py beacon
-    python test_search_notes.py
+    python -m unittest discover -v
 
 ## Validation
 
-Five automated tests cover:
-- Exact project name.
-- Misspelled project name.
-- A different project.
-- A nonexistent project.
+Nine automated tests across `test_search_notes.py` and
+`test_json_output.py` cover:
+- Exact and misspelled project names.
+- A different project and a nonexistent project.
 - A note inside a nested folder.
+- Multiple candidates requiring review.
+- Structured JSON output for single-candidate, multiple-candidate, and
+  no-match results.
 
 A controlled experiment reproduced the nested-folder failure before
 recursive searching was added, then verified the correction.
